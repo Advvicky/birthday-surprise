@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday My Love</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffebcd;
+        }
+        h1 {
+            color: #ff1493;
+        }
+        .card, .gift-container, #gallery, #questions {
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+        }
+        .gift-box {
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: relative;
+            cursor: pointer;
+            margin: auto;
+            border-radius: 10px;
+        }
+        .lid {
+            width: 100px;
+            height: 20px;
+            background: darkred;
+            position: absolute;
+            top: -20px;
+            transition: transform 0.5s ease;
+        }
+        .box {
+            width: 100px;
+            height: 80px;
+            background: red;
+            position: absolute;
+            bottom: 0;
+            border-radius: 10px;
+        }
+        .image-gallery img {
+            width: 100px;
+            height: 100px;
+            margin: 5px;
+            border-radius: 10px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="passwordScreen">
+        <h2>Enter Password to Unlock Your Surprise</h2>
+        <input type="password" id="passwordInput" placeholder="Enter Password">
+        <button onclick="checkPassword()">Unlock</button>
+    </div>
+
+    <div id="mainContent" style="display: none;">
+        <h1>Happy Birthday, My Love!</h1>
+
+        <!-- Gift Box Animation -->
+        <div class="gift-container">
+            <p>Click to Open Your Special Gift! 🎁</p>
+            <div class="gift-box" onclick="openGift()">
+                <div class="lid"></div>
+                <div class="box"></div>
+            </div>
+            <div id="giftContent" class="hidden">
+                <h3>Civil Litigation Course Details:</h3>
+                <p><strong>User ID:</strong> avkvigneshkumarcs3000@gmail.com</p>
+                <p><strong>Password:</strong> VICKYSREE2025</p>
+            </div>
+        </div>
+
+        <!-- Memories Gallery (Hidden at Start) -->
+        <div id="gallery" class="hidden">
+            <h2>📸 Our Beautiful Memories 📸</h2>
+            <div class="image-gallery">
+                <img src="photo1.jpg" alt="அழகிய ராட்சசி">
+                <img src="photo2.jpg" alt="chella pulla">
+                <img src="photo3.jpg" alt="கன்னக்குழியில் கவிழ்ந்து போயின">
+                <img src="photo4.jpg" alt="செம்பு சிலையழகி">
+                <img src="photo5.jpg" alt="கார் மேக் கண்ணழகி">
+                <img src="photo6.jpg" alt="செவ்விதழ் அழகி">
+                <img src="photo7.jpg" alt="மொத்ததில் மனதை பிதற்றும் மாயக்காரி">
+            </div>
+        </div>
+
+        <!-- Relationship-Building Questions -->
+        <div id="questions">
+            <h2>💖 Let's Deepen Our Bond 💖</h2>
+            <p>Here are some fun and deep questions for us:</p>
+            <ol>
+                <li>If we could relive one perfect day together, which one would it be?</li>
+                <li>What is one thing I do that makes you feel most loved?</li>
+                <li>Where do you dream of us traveling together?</li>
+                <li>What’s your favorite thing about our love story?</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        function checkPassword() {
+            var password = document.getElementById("passwordInput").value.trim();
+            if (password === "Vickyiloveu") {
+                document.getElementById("passwordScreen").style.display = "none";
+                document.getElementById("mainContent").style.display = "block";
+            } else {
+                alert("Wrong password! Try again.");
+            }
+        }
+
+        function openGift() {
+            document.querySelector(".lid").style.transform = "translateY(-50px) rotate(-20deg)";
+            setTimeout(() => {
+                alert("🎁 Surprise! Here are your special memories!");
+                document.getElementById("gallery").classList.remove("hidden");
+                document.getElementById("giftContent").classList.remove("hidden");
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
